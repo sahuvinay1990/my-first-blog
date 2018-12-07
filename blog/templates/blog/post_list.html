@@ -3,20 +3,16 @@
         <title>Django  blog</title>
     </head>
     <body>
+	
         <div>
             <h1><a href="/">Django  Blog</a></h1>
         </div>
-
+		{% for post in posts %}
         <div>
-            <p>published: 07.12.2018, 00:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Hello All. my first django web project</p>
-        </div>
-
-        <div>
-            <p>published: 06.12.2018, 23:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Second post thats it. Good night</p>
-        </div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+		</div>
+		{% endfor %}
     </body>
 </html>
